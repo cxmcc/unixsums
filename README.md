@@ -2,7 +2,7 @@ morehash
 ========
 
 Morehash is an implementation of popular hashing algorithms in Go Language.
-(hashing libraries that are not included in starndard go libraries)
+(those are not included in official go packages)
 
 
 Install the package:
