@@ -1,6 +1,6 @@
 package bsdsum
 
-import ".."
+import "github.com/cxmcc/morehash"
 
 const Size = 2
 
