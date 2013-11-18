@@ -26,6 +26,7 @@ func main() {
 
 ~~~
 
-Hash Algorithms Provided:
-* bsdsum (sum, UNIXsum)
-* cksum (UNIXcksum, POSIX cksum)
+Hash algorithms provided:
+* bsdsum (BSD checksum, sum, UNIXsum)
+* cksum (UNIX cksum, POSIX cksum)
+* sysvsum (UNIX SystemV sum, SYSV checksum, sum -s)
