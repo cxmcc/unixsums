@@ -8,7 +8,7 @@ type digest struct {
 	sum uint32
 }
 
-func New() morehash.Hash16 {
+func New() unixsums.Hash16 {
 	return &digest{0}
 }
 
