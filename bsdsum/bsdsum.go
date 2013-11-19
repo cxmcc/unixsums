@@ -1,6 +1,6 @@
 package bsdsum
 
-import "github.com/cxmcc/morehash"
+import "github.com/cxmcc/unixsums"
 
 const Size = 2
 

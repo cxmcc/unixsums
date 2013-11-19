@@ -1,4 +1,4 @@
-package morehash
+package unixsums
 
 import "hash"
 
