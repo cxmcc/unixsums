@@ -1,6 +1,7 @@
 package cksum
 
 import (
+	"fmt"
 	"io"
 	"testing"
 )
@@ -32,4 +33,17 @@ func TestGolden(t *testing.T) {
 			t.Errorf("Cksum(%s) = %d want %d", g.in, s, g.sum)
 		}
 	}
+}
+
+func ExampleNew() {
+	c := New()
+	io.WriteString(c, "Go is an open source programming environment.")
+	fmt.Printf("cksum: %d", c.Sum32())
+	// Output: cksum: 3621830076
+}
+
+func ExampleCksum() {
+	data := []byte("Go is expressive, concise, clean, and efficient.")
+	fmt.Printf("cksum: %d", Cksum(data))
+	// Output: cksum: 1937373249
 }

@@ -1,5 +1,5 @@
 // Package bsdsum implements the SYSV checksum algorithm
-// SYSV checksum is also known as UNIX SYStem V checksum, sum -v
+// SYSV checksum is also known as UNIX SYStem V checksum, sum -s
 package sysvsum
 
 import "github.com/cxmcc/unixsums"

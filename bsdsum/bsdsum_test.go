@@ -1,6 +1,7 @@
 package bsdsum
 
 import (
+	"fmt"
 	"io"
 	"testing"
 )
@@ -32,4 +33,17 @@ func TestGolden(t *testing.T) {
 			t.Errorf("Bsdsum(%s) = %d want %d", g.in, s, g.sum)
 		}
 	}
+}
+
+func ExampleNew() {
+	c := New()
+	io.WriteString(c, "Go is an open source programming environment.")
+	fmt.Printf("sum: %d", c.Sum16())
+	// Output: sum: 16973
+}
+
+func ExampleBsdsum() {
+	data := []byte("Go is expressive, concise, clean, and efficient.")
+	fmt.Printf("sum: %d", Bsdsum(data))
+	// Output: sum: 8092
 }
