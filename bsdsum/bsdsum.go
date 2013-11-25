@@ -1,13 +1,17 @@
+// Package bsdsum implements the BSD checksum algorithm
+// BSD checksum is also known as UNIX sum
 package bsdsum
 
 import "github.com/cxmcc/unixsums"
 
+// The size of a BSD checksum value
 const Size = 2
 
 type digest struct {
 	sum uint16
 }
 
+// New returns a new hash.Hash computing the BSD checksum value
 func New() unixsums.Hash16 {
 	return &digest{0}
 }
@@ -40,6 +44,7 @@ func (d *digest) Sum(in []byte) []byte {
 	return append(in, byte(s>>8), byte(s))
 }
 
+// Bsdsum returns the BSD checksum of the given byte array
 func Bsdsum(data []byte) uint16 {
 	d := New()
 	d.Write(data)

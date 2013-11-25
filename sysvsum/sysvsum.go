@@ -1,13 +1,17 @@
+// Package bsdsum implements the SYSV checksum algorithm
+// SYSV checksum is also known as UNIX SYStem V checksum, sum -v
 package sysvsum
 
 import "github.com/cxmcc/unixsums"
 
+// The size of an SYSV checksum value
 const Size = 2
 
 type digest struct {
 	sum uint32
 }
 
+// New returns a new hash.Hash computing the SYSV checksum value
 func New() unixsums.Hash16 {
 	return &digest{0}
 }
@@ -41,6 +45,7 @@ func (d *digest) Sum(in []byte) []byte {
 	return append(in, byte(s>>8), byte(s))
 }
 
+// Sysvsum returns the SYSV checksum value of a given byte array
 func Sysvsum(data []byte) uint16 {
 	d := New()
 	d.Write(data)

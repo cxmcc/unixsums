@@ -1,7 +1,10 @@
+// Package cksum implements the legacy unix core util cksum
+// cksum is also known as POSIX cksum, UNIX cksum
 package cksum
 
 import "hash"
 
+// The size of a cksum value
 const Size = 4
 
 var crctab = [256]uint32{
@@ -76,6 +79,7 @@ type digest struct {
 	length int
 }
 
+// New returns a new hash.Hash computing the cksum value
 func New() hash.Hash32 {
 	return &digest{0, 0}
 }
@@ -118,6 +122,7 @@ func (d *digest) Sum(in []byte) []byte {
 	return append(in, byte(s>>24), byte(s>>16), byte(s>>8), byte(s))
 }
 
+// Cksum returns the cksum value of a given byte array
 func Cksum(data []byte) uint32 {
 	d := New()
 	d.Write(data)
